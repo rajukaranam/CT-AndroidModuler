@@ -7,7 +7,10 @@ This project aims to manage multiple apps from a single source foundation. Accor
 Given the updates in SDK and handling changes in technical and feature behaviors, as well as updating deprecated support libraries, methods, and native feature support classes, managing multiple apps in different timelines can lead to redundant efforts in replicating similar content updates.
 
 ###### Example for Feature Behavior updates 
+
 ![Apps Target Android OS 13!](/assets/behavior_change.png "Behavior changes example")
+
+Behavior changes  [Behavior Changes Example](https://developer.android.com/about/versions/13/behavior-changes-13 "Android 13")
 
 ## Therefore, a Modular Architecture with a Single Source Code Foundation, coupled with Version Control and Branching, can effectively tackle this problem. This approach allows for efficient management of updates across multiple apps, streamlining development efforts and ensuring consistency while adapting to changes in SDKs and technical requirements.
 
@@ -23,8 +26,7 @@ Each build configuration can define its own set of code and resources while reus
 
 So, here is the trick to manage multiple gradle file version updates with TOML config file
 
-versionCatalogs [TOML](https://toml.io/en/ "Tom's Obvious Minimal Language").
-
+VersionCatalogs [TOML](https://toml.io/en/ "Tom's Obvious Minimal Language").
 
 Modular Architecture for Multiple APPs
 ![Dependency graph for Multiple APPS](/assets/final_arch.png "for multiple apps")
