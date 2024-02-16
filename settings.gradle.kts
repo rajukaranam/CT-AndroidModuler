@@ -11,6 +11,11 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
     }
+    versionCatalogs {
+        create("ctlibs") {
+            from(files("gradle/ctlibs.versions.toml"))
+        }
+    }
 }
 rootProject.name = "CT-AndroidModuler"
 include(":Carwale")
