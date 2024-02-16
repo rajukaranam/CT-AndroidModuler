@@ -9,7 +9,7 @@ Given the updates in SDK and handling changes in technical and feature behaviors
 ###### Example for Feature Behavior updates 
 ![Apps Target Android OS 13!](/assets/behavior_change.png "Behavior changes example")
 
-Therefore, a Modular Architecture with a Single Source Code Foundation, coupled with Version Control and Branching, can effectively tackle this problem. This approach allows for efficient management of updates across multiple apps, streamlining development efforts and ensuring consistency while adapting to changes in SDKs and technical requirements.
+## Therefore, a Modular Architecture with a Single Source Code Foundation, coupled with Version Control and Branching, can effectively tackle this problem. This approach allows for efficient management of updates across multiple apps, streamlining development efforts and ensuring consistency while adapting to changes in SDKs and technical requirements.
 
 ## Modularization
 Modularization is a practice of organizing a codebase into loosely coupled and self contained parts. Each part is a module. Each module is independent and serves a clear purpose. By dividing a problem into smaller and easier to solve subproblems, you reduce the complexity of designing and maintaining a large system.
