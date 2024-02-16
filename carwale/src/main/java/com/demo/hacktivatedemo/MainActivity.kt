@@ -26,6 +26,7 @@ import com.ct.mycameralibray.CameraFragment
 import com.ct.mycameralibray.ImageTags
 import com.demo.hacktivatedemo.databinding.LayoutImageTagsoneBinding
 import com.demo.hacktivatedemo.databinding.ActivityImagesBinding
+import com.demo.sharedmethods.PermissionUtils
 import com.demo.sharedmethods.SharedMethods
 import com.google.gson.Gson
 import org.json.JSONException
@@ -36,7 +37,7 @@ class MainActivity : AppCompatActivity(), CameraFragment.CamListImages {
 
     lateinit var binding: ActivityImagesBinding
     var imagesList: ArrayList<ImageTags>? = ArrayList()
-
+    var pos: Int=0;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityImagesBinding.inflate(layoutInflater)
@@ -114,24 +115,26 @@ class MainActivity : AppCompatActivity(), CameraFragment.CamListImages {
             holder.btnSelectImage.setOnClickListener {
 
 
-                if (allPermissionsGranted()) {
-                    val intent = Intent(this@MainActivity, CameraActivity::class.java)
-                    intent.putExtra("images_list", imagesList)
-                    intent.putExtra("position", position)
-                    startActivity(intent)
-                } else {
-                    ActivityCompat.requestPermissions(
-                        this@MainActivity,
-                        mutableListOf(Manifest.permission.CAMERA,
-                            Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                            Manifest.permission.ACCESS_COARSE_LOCATION,).apply {
-                            if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
-                                add(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                            }
-                        }.toTypedArray(),
-                        1001
-                    )
-
+                pos = position;
+                if (PermissionUtils.checkPermission(this@MainActivity, "CAMERA", "camera")) {
+                    if (PermissionUtils.checkPermission(
+                            this@MainActivity,
+                            "STORAGE",
+                            "storage"
+                        )
+                    ) {
+                        if (PermissionUtils.checkPermission(
+                                this@MainActivity,
+                                "LOCATION",
+                                "location"
+                            )
+                        ) {
+                            val intent = Intent(this@MainActivity, CameraActivity::class.java)
+                            intent.putExtra("images_list", imagesList)
+                            intent.putExtra("position", position)
+                            startActivity(intent)
+                        }
+                    }
                 }
             }
 
@@ -238,12 +241,60 @@ class MainActivity : AppCompatActivity(), CameraFragment.CamListImages {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == 1001) {
-            if (allPermissionsGranted()) {
-                //loadData()
-            } else {
-                Toast.makeText(binding.root.context, "permission not granted", Toast.LENGTH_SHORT).show()
-                finish()
+        if (requestCode == 125) {
+            if (PermissionUtils.checkPermission(this@MainActivity, "STORAGE", "storage")) {
+                if (PermissionUtils.checkPermission(this@MainActivity, "CAMERA", "camera")) {
+                    if (PermissionUtils.checkPermission(
+                            this@MainActivity,
+                            "STORAGE",
+                            "storage"
+                        )
+                    ) {
+                        if (PermissionUtils.checkPermission(
+                                this@MainActivity,
+                                "LOCATION",
+                                "location"
+                            )
+                        ) {
+                            val intent = Intent(this@MainActivity, CameraActivity::class.java)
+                            intent.putExtra("images_list", imagesList)
+                            intent.putExtra("position", pos)
+                            startActivity(intent)
+                        }
+                    }
+                }
+            }
+        } else if (requestCode == 121) {
+            if (PermissionUtils.checkPermission(this@MainActivity, "CAMERA", "camera")) {
+                if (PermissionUtils.checkPermission(this@MainActivity, "STORAGE", "storage")) {
+                    if (PermissionUtils.checkPermission(
+                            this@MainActivity,
+                            "LOCATION",
+                            "location"
+                        )
+                    ) {
+                        val intent = Intent(this@MainActivity, CameraActivity::class.java)
+                        intent.putExtra("images_list", imagesList)
+                        intent.putExtra("position", pos)
+                        startActivity(intent)
+                    }
+                }
+            }
+        } else if (requestCode == 124) {
+            if (PermissionUtils.checkPermission(this@MainActivity, "CAMERA", "camera")) {
+                if (PermissionUtils.checkPermission(this@MainActivity, "STORAGE", "storage")) {
+                    if (PermissionUtils.checkPermission(
+                            this@MainActivity,
+                            "LOCATION",
+                            "location"
+                        )
+                    ) {
+                        val intent = Intent(this@MainActivity, CameraActivity::class.java)
+                        intent.putExtra("images_list", imagesList)
+                        intent.putExtra("position", pos)
+                        startActivity(intent)
+                    }
+                }
             }
         }
 
