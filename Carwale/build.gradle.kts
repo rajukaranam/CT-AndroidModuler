@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.demo.hactivatedemo"
+    namespace = "com.demo.hacktivatedemo"
     compileSdk = ctlibs.versions.compileSDK.get().toInt()
 
     defaultConfig {
-        applicationId = "com.demo.hactivatedemo"
+        applicationId = "com.demo.hacktivatedemo"
         minSdk = ctlibs.versions.minSDK.get().toInt()
         versionCode = 1
         versionName = "1.0"

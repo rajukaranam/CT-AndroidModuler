@@ -1,4 +1,4 @@
-package com.demo.hactivatedemo
+package com.demo.hacktivatedemo
 
 import android.content.pm.ActivityInfo
 import android.os.Bundle
@@ -6,7 +6,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.ct.mycameralibray.CameraFragment
 import com.ct.mycameralibray.ImageTags
-import com.demo.hactivatedemo.databinding.ActivityCameraBinding
+import com.demo.hacktivatedemo.databinding.ActivityCameraBinding
 
 class CameraActivity : AppCompatActivity(), CameraFragment.CamImages {
 

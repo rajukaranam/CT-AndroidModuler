@@ -1,4 +1,4 @@
-package com.demo.hactivatedemo
+package com.demo.hacktivatedemo
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -24,8 +24,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ct.mycameralibray.CamPref
 import com.ct.mycameralibray.CameraFragment
 import com.ct.mycameralibray.ImageTags
-import com.demo.hactivatedemo.databinding.ActivityImagesBinding
-import com.demo.hactivatedemo.databinding.LayoutImageTagsoneBinding
+import com.demo.hacktivatedemo.databinding.ActivityImagesBinding
+import com.demo.hacktivatedemo.databinding.LayoutImageTagsoneBinding
 import com.demo.sharedmethods.SharedMethods
 import com.google.gson.Gson
 import org.json.JSONException

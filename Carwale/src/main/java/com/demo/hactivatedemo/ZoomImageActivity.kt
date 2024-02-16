@@ -1,4 +1,4 @@
-package com.demo.hactivatedemo
+package com.demo.hacktivatedemo
 
 import android.os.Bundle
 import android.view.MotionEvent
@@ -6,7 +6,7 @@ import android.view.ScaleGestureDetector
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.ct.mycameralibray.ImageTags
-import com.demo.hactivatedemo.databinding.ActivityZoomImageBinding
+import com.demo.hacktivatedemo.databinding.ActivityZoomImageBinding
 import kotlin.math.max
 import kotlin.math.min
 
