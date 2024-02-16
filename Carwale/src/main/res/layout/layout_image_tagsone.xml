@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rv_main_layout"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="156dp"
+    android:layout_gravity="center"
+    android:layout_margin="8dp"
+    android:orientation="vertical"
+    tools:ignore="MissingClass">
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvPicture"
+        android:textColor="@color/gray"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1sp" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivPicture"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerVertical="true"
+            android:background="#FFFFFF"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:scaleType="centerCrop"
+            android:visibility="gone" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_toRightOf="@+id/ivPicture"
+            android:id="@+id/ivdelete"
+            android:src="@mipmap/icon_close_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="#FFFFFF"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:visibility="gone" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnGallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="center"
+            android:src="@drawable/no_mg_image" />
+    </RelativeLayout>
+
+    <!--<FrameLayout
+        android:id="@+id/ll_image_border"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_grey">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:src="@drawable/no_mg_image"
+            android:id="@+id/ivPicture"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:padding="2dp"
+            android:scaleType="centerCrop"
+            android:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivdelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_margin="1sp"
+            android:adjustViewBounds="true"
+            android:padding="3sp"
+            android:visibility="gone"
+            android:scaleType="centerInside"
+            android:src="@mipmap/icon_close_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_title"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:visibility="gone"
+            android:id="@+id/btnGallery"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="center"
+            tools:src="@drawable/no_mg_image" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_sync"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_margin="1sp"
+            android:adjustViewBounds="true"
+            android:padding="3sp"
+            android:scaleType="centerInside"
+            android:src="@mipmap/sync"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_title"
+            />
+    </FrameLayout>-->
+
+
+</LinearLayout>
