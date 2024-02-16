@@ -12,8 +12,7 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-
-rootProject.name = "HactivateDemo"
+rootProject.name = "CT-AndroidModuler"
 include(":Carwale")
 include(":Cartrade")
 include(":CTCamera")
