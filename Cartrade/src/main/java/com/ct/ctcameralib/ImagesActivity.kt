@@ -40,11 +40,11 @@ class ImagesActivity : AppCompatActivity(), CameraFragment.CamListImages {
         super.onCreate(savedInstanceState)
         binding = ActivityImagesBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        SharedMethods.showToast(this, "Hello this is Cartrade app");
+        //SharedMethods.showToast(this, "Hello this is Cartrade app");
         val camFrag = CameraFragment
         camFrag.setCamListImages(this)
         binding.lvImgTags.adapter = Pictures(imagesList)
-        if (allPermissionsGranted()) {
+        /*if (allPermissionsGranted()) {
             loadData()
         } else {
             ActivityCompat.requestPermissions(
@@ -59,7 +59,9 @@ class ImagesActivity : AppCompatActivity(), CameraFragment.CamListImages {
                 1001
             )
 
-        }
+        }*/
+
+        loadData()
 
         binding.tvctapp.setOnClickListener {
             SharedMethods.showAlert(this,"Cartrade","This is Cartrade App")
@@ -103,10 +105,27 @@ class ImagesActivity : AppCompatActivity(), CameraFragment.CamListImages {
                 holder.btnSelectImage.visibility = View.GONE
             }
             holder.btnSelectImage.setOnClickListener {
-                val intent = Intent(this@ImagesActivity, CameraActivity::class.java)
-                intent.putExtra("images_list", imagesList)
-                intent.putExtra("position", position)
-                startActivity(intent)
+
+
+                if (allPermissionsGranted()) {
+                    val intent = Intent(this@ImagesActivity, CameraActivity::class.java)
+                    intent.putExtra("images_list", imagesList)
+                    intent.putExtra("position", position)
+                    startActivity(intent)
+                } else {
+                    ActivityCompat.requestPermissions(
+                        this@ImagesActivity,
+                        mutableListOf(Manifest.permission.CAMERA,
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                            Manifest.permission.ACCESS_COARSE_LOCATION,).apply {
+                            if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
+                                add(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                            }
+                        }.toTypedArray(),
+                        1001
+                    )
+
+                }
             }
 
             holder.captureImage.setOnClickListener {
@@ -214,7 +233,7 @@ class ImagesActivity : AppCompatActivity(), CameraFragment.CamListImages {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == 1001) {
             if (allPermissionsGranted()) {
-                loadData()
+                //loadData()
             } else {
                 Toast.makeText(binding.root.context, "permission not granted", Toast.LENGTH_SHORT).show()
                 finish()

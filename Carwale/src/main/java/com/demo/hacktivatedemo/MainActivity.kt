@@ -24,8 +24,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ct.mycameralibray.CamPref
 import com.ct.mycameralibray.CameraFragment
 import com.ct.mycameralibray.ImageTags
-import com.demo.hacktivatedemo.databinding.ActivityImagesBinding
 import com.demo.hacktivatedemo.databinding.LayoutImageTagsoneBinding
+import com.demo.hacktivatedemo.databinding.ActivityImagesBinding
 import com.demo.sharedmethods.SharedMethods
 import com.google.gson.Gson
 import org.json.JSONException
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity(), CameraFragment.CamListImages {
         super.onCreate(savedInstanceState)
         binding = ActivityImagesBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        SharedMethods.showToast(this, "Hello this is Carwale app");
+        //SharedMethods.showToast(this, "Hello this is Carwale app");
         val camFrag = CameraFragment
         camFrag.setCamListImages(this)
 
@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity(), CameraFragment.CamListImages {
         binding.lvImgTags.setLayoutManager(gridLayoutManager)
 
         binding.lvImgTags.adapter = Pictures(imagesList)
-        if (allPermissionsGranted()) {
+        /*if (allPermissionsGranted()) {
             loadData()
         } else {
             ActivityCompat.requestPermissions(
@@ -65,8 +65,9 @@ class MainActivity : AppCompatActivity(), CameraFragment.CamListImages {
                 1001
             )
 
-        }
+        }*/
 
+        loadData()
 
 
         binding.tvctapp.setOnClickListener {
@@ -111,10 +112,27 @@ class MainActivity : AppCompatActivity(), CameraFragment.CamListImages {
                 holder.btnSelectImage.visibility = View.GONE
             }
             holder.btnSelectImage.setOnClickListener {
-                val intent = Intent(this@MainActivity, CameraActivity::class.java)
-                intent.putExtra("images_list", imagesList)
-                intent.putExtra("position", position)
-                startActivity(intent)
+
+
+                if (allPermissionsGranted()) {
+                    val intent = Intent(this@MainActivity, CameraActivity::class.java)
+                    intent.putExtra("images_list", imagesList)
+                    intent.putExtra("position", position)
+                    startActivity(intent)
+                } else {
+                    ActivityCompat.requestPermissions(
+                        this@MainActivity,
+                        mutableListOf(Manifest.permission.CAMERA,
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                            Manifest.permission.ACCESS_COARSE_LOCATION,).apply {
+                            if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
+                                add(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                            }
+                        }.toTypedArray(),
+                        1001
+                    )
+
+                }
             }
 
             holder.captureImage.setOnClickListener {
@@ -222,7 +240,7 @@ class MainActivity : AppCompatActivity(), CameraFragment.CamListImages {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == 1001) {
             if (allPermissionsGranted()) {
-                loadData()
+                //loadData()
             } else {
                 Toast.makeText(binding.root.context, "permission not granted", Toast.LENGTH_SHORT).show()
                 finish()
