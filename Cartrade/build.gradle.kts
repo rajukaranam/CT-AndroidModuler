@@ -5,11 +5,11 @@ plugins {
 
 android {
     namespace = "com.ct.ctcameralib"
-    compileSdk = 34
+    compileSdk = ctlibs.versions.compileSDK.get().toInt()
 
     defaultConfig {
         applicationId = "com.ct.ctcameralib"
-        minSdk = 24
+        minSdk = ctlibs.versions.minSDK.get().toInt()
         versionCode = 1
         versionName = "1.0"
 
@@ -47,15 +47,14 @@ dependencies {
     implementation(project(mapOf("path" to ":SharedUtils")))
 
 
-    implementation("androidx.core:core-ktx:1.9.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.11.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation(ctlibs.androidx.core)
+    implementation(ctlibs.androidx.appcompat)
+    implementation (ctlibs.android.material)
+    implementation(ctlibs.androidx.constraintlayout)
+    implementation (ctlibs.retrofit.gson)
+    implementation (ctlibs.glide)
 
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-
-    implementation ("com.squareup.retrofit2:converter-gson:2.5.0")
-    implementation ("com.github.bumptech.glide:glide:4.13.2")
+    testImplementation (ctlibs.testJunit)
+    androidTestImplementation (ctlibs.testExt)
+    androidTestImplementation (ctlibs.testEspress)
 }
