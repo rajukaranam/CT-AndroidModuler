@@ -17,7 +17,8 @@ Modularization is a practice of organizing a codebase into loosely coupled and s
 Simple Modular Architecture for single APP
 ![Dependency graph for Single APP](/assets/modularization_one.png "for single app")
                                           
-Here the challenge is we have to manage the Gradle an advanced build toolkit, to automate and mange the build process while letting you define flexible, custom build configurations. 
-Each build configuration can define its own set of code and resources while reusing the parts common to all versions of your app.
-we have to mange this gradle for each module individually 
+Here the challenge is we have to manage the Gradle for each module individually  
+(Gradle an advanced build toolkit, to automate and mange the build process while letting you define flexible, custom build configurations. 
+Each build configuration can define its own set of code and resources while reusing the parts common to all versions of your app.)
+
 
