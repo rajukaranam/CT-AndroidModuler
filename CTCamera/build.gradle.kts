@@ -5,10 +5,10 @@ plugins {
 
 android {
     namespace = "com.ct.mycameralibray"
-    compileSdk = 33
+    compileSdk = ctlibs.versions.compileSDK.get().toInt()
 
     defaultConfig {
-        minSdk = 24
+        minSdk = ctlibs.versions.minSDK.get().toInt()
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -46,15 +46,15 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
-
-    //GSON
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.github.bumptech.glide:glide:4.13.2")
 
     implementation ("com.google.android.gms:play-services-location:21.0.1")
-    val camerax_version =  "1.2.0"
-    implementation ("androidx.camera:camera-core:${camerax_version}")
-    implementation ("androidx.camera:camera-camera2:${camerax_version}")
-    implementation ("androidx.camera:camera-lifecycle:${camerax_version}")
-    implementation ("androidx.camera:camera-view:${camerax_version}")
-    implementation ("com.github.bumptech.glide:glide:4.13.2")
+    implementation (ctlibs.camera.core)
+    implementation (ctlibs.camera.camera2)
+    implementation (ctlibs.camera.lifecycle)
+    implementation (ctlibs.camera.view)
+
+
+
 }
