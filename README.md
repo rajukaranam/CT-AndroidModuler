@@ -21,4 +21,10 @@ Here the challenge is we have to manage the Gradle for each module individually
 (Gradle an advanced build toolkit, to automate and mange the build process while letting you define flexible, custom build configurations. 
 Each build configuration can define its own set of code and resources while reusing the parts common to all versions of your app.)
 
+So, here is the trick to manage multiple gradle file version updates with TOML config file
 
+versionCatalogs [TOML](https://toml.io/en/ "Tom's Obvious Minimal Language").
+
+
+Modular Architecture for Multiple APPs
+![Dependency graph for Multiple APPS](/assets/final_arch.png "for multiple apps")
