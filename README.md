@@ -1,7 +1,9 @@
 #CT Andorid Team 
 
-    This project aims to manage multiple apps from a single source foundation. According to the Google Play Console, 
-apps must be updated periodically with the latest Android SDK version target; otherwise, they will not be shown in the Play Console for updated apps.
+This project aims to manage multiple apps from a single source foundation.
+According to the Google Play Console, 
+apps must be updated periodically with the latest Android SDK version target;
+otherwise, they will not be shown in the Play Console for updated apps.
 
     To address this issue and save development time, we need a consolidated solution since some apps may contain similar code content such as 
 network calls, alerts, camera, or gallery functionalities.
