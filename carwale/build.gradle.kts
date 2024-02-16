@@ -41,8 +41,8 @@ android {
 }
 
 dependencies {
-    implementation(project(mapOf("path" to ":SharedUtils")))
-    implementation(project(mapOf("path" to ":CTCamera")))
+    implementation(project(mapOf("path" to ":sharedutils")))
+    implementation(project(mapOf("path" to ":ctcamera")))
 
     implementation(ctlibs.androidx.core)
     implementation(ctlibs.androidx.appcompat)

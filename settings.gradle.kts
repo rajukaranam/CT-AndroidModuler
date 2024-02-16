@@ -18,8 +18,8 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "CT-AndroidModuler"
-include(":Carwale")
-include(":Cartrade")
-include(":CTCamera")
-include(":SharedUtils")
+include(":carwale")
+include(":cartrade")
+include(":ctcamera")
+include(":sharedutils")
 include(":Adroit")
